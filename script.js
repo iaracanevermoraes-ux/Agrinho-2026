@@ -160,3 +160,122 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 </script>
+const energiaEconomizada = hectares * 45;
+const arvoresEquivalentes = Math.round(co2ReduzidoKg / 22);
+
+painelResultadoCalc.innerHTML = `
+<h3>🌿 Resultado da Simulação</h3>
+
+<p>💧 Água economizada:
+<strong>${aguaEconomizadaLitros.toLocaleString('pt-BR')} litros</strong></p>
+
+<p>🌳 CO₂ evitado:
+<strong>${co2ReduzidoKg.toFixed(1)} kg</strong></p>
+
+<p>⚡ Energia economizada:
+<strong>${energiaEconomizada.toFixed(0)} kWh</strong></p>
+
+<p>🌲 Equivale ao plantio de aproximadamente
+<strong>${arvoresEquivalentes} árvores</strong>.</p>
+`;
+const bancoPerguntas = [
+
+{
+pergunta:"Qual prática reduz a erosão do solo?",
+
+opcoes:[
+"Queimadas",
+"Curvas de nível",
+"Desmatamento"],
+
+correta:1
+},
+
+{
+pergunta:"Qual tecnologia ajuda a monitorar plantações?",
+
+opcoes:[
+"Drones",
+"Fogos de artifício",
+"Televisão"],
+
+correta:0
+},
+
+{
+pergunta:"Qual energia é renovável?",
+
+opcoes:[
+"Solar",
+"Carvão",
+"Petróleo"],
+
+correta:0
+},
+
+{
+pergunta:"O que é agricultura sustentável?",
+
+opcoes:[
+"Produzir preservando a natureza",
+"Desmatar áreas",
+"Usar apenas máquinas"],
+
+correta:0
+},
+
+{
+pergunta:"O que reduz o desperdício de água?",
+
+opcoes:[
+"Irrigação inteligente",
+"Deixar torneiras abertas",
+"Queimadas"],
+
+correta:0
+},
+
+{
+pergunta:"Qual prática ajuda a biodiversidade?",
+
+opcoes:[
+"Preservar matas ciliares",
+"Desmatamento",
+"Poluição"],
+
+correta:0
+}
+
+];
+let pontuacao = 0;
+pontuacao++;
+textoPergunta.innerHTML = `
+🏆 Quiz Finalizado!
+
+Você acertou
+<strong>${pontuacao}</strong>
+de
+<strong>${bancoPerguntas.length}</strong>
+perguntas.
+`;
+const saudacao=document.getElementById("saudacao");
+
+if(saudacao){
+
+const hora=new Date().getHours();
+
+if(hora<12){
+
+saudacao.innerHTML="☀️ Bom dia!";
+
+}else if(hora<18){
+
+saudacao.innerHTML="🌱 Boa tarde!";
+
+}else{
+
+saudacao.innerHTML="🌙 Boa noite!";
+
+}
+
+}
